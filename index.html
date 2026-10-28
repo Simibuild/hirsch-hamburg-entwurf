@@ -18,7 +18,7 @@
   "url": "https://hirsch.hamburg/",
   "telephone": "+494087976711",
   "email": "mail@architektin-hh.de",
-  "image": "https://hirsch.hamburg/img/drittel-luen-holz-abend.jpg",
+  "image": "https://hirsch.hamburg/img/buero-daemmerung.jpg",
   "address": { "@type": "PostalAddress", "streetAddress": "Kleefeld 24a", "postalCode": "21077", "addressLocality": "Hamburg", "addressCountry": "DE" },
   "areaServed": "Hamburg"
 }
@@ -604,6 +604,30 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
 .faq__punkt[open] summary::after { transform: rotate(45deg); }
 .faq__punkt p { margin-top: 1rem; color: var(--rauch); font-weight: 300; max-width: 40em; line-height: 1.6; }
 
+
+/* Vorher und Nachher */
+.vorher-nachher { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; }
+@media (min-width: 48em) { .vorher-nachher { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.vorher-nachher figure { margin: 0; position: relative; overflow: hidden; }
+.vorher-nachher img { width: 100%; height: auto; display: block; }
+.vorher-nachher figcaption { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--rauch); margin-top: .8rem; }
+/* Bilder direkt als img: auf volle Breite des Rahmens begrenzen */
+.laden__bild img { width: 100%; height: 100%; object-fit: cover; }
+/* Büro-Bild: Rahmen begrenzt, Unterschrift im Fluss unter dem Bild */
+.laden__bild { overflow: hidden; }
+.laden__bild figcaption { position: static; margin-top: .9rem; }
+/* Lange Wörter in schmalen Spalten umbrechen statt überlaufen */
+.laden__fakten { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fakt { min-width: 0; }
+.fakt__text { overflow-wrap: anywhere; hyphens: auto; }
+.laden__satz, .lauf { overflow-wrap: anywhere; }
+/* Leistungsspalte darf nicht breiter werden als der Bildschirm */
+@media (max-width: 63.99em) { .karte { grid-template-columns: minmax(0, 1fr); } }
+.karte > div { min-width: 0; }
+.karte__mobilbild img { max-width: 100%; }
+/* Lange Überschriften in der Leistungsliste umbrechen */
+.karte__titel { min-width: 0; }
+.karte__titel h3 { min-width: 0; overflow-wrap: anywhere; }
 </style>
 </head>
 <body>
@@ -645,7 +669,7 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
 <section class="schnitt" id="start" aria-label="Einstieg">
   <div class="schnitt__innen">
     <div class="oeffnung" id="oeffnung" aria-hidden="true">
-      <img src="img/hp3slider1.jpg" alt="" width="1920" height="400">
+      <img src="img/band-hero.jpg" alt="" width="1920" height="400">
       <i class="oeffnung__kante" id="kante-a"></i>
       <i class="oeffnung__kante" id="kante-b"></i>
     </div>
@@ -715,8 +739,8 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
       </div>
     </div>
     <figure class="laden__bild" data-enthuellen="bild">
-      <img src="img/drittel-dreifam-gaube.jpg" alt="Neubau eines Mehrfamilienhauses mit weißer Fassade, Holzelementen und Dachgauben in Wilhelmsburg" width="640" height="400">
-      <figcaption>Neubau eines Mehrfamilienhauses, Wilhelmsburg</figcaption>
+      <img src="img/buero-daemmerung.jpg" alt="Neubau eines Einfamilienhauses mit Büro in Hamburg-Marmstorf, Garten am Abend" width="800" height="533">
+      <figcaption>Neubau eines Einfamilienhauses mit Büro, Hamburg-Marmstorf</figcaption>
     </figure>
   </div>
 </section>
@@ -731,18 +755,18 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
   </div>
   <div class="karte">
     <figure class="karte__bild" id="karte-bild" aria-hidden="true">
-      <picture class="ist-aktiv" data-gruppe="neubau"><img src="img/drittel-luen-neubau.jpg" alt="" width="640" height="400" loading="lazy"></picture>
-      <picture data-gruppe="sanierung"><img src="img/drittel-fichtenweg-rot.jpg" alt="" width="640" height="400" loading="lazy"></picture>
-      <picture data-gruppe="umbau"><img src="img/drittel-anbau-rot.jpg" alt="" width="640" height="400" loading="lazy"></picture>
-      <picture data-gruppe="innenausbau"><img src="img/drittel-hafencity-laden.jpg" alt="" width="640" height="400" loading="lazy"></picture>
-      <picture data-gruppe="beratung"><img src="img/drittel-luen-holz-abend.jpg" alt="" width="640" height="400" loading="lazy"></picture>
+      <picture class="ist-aktiv" data-gruppe="neubau"><img src="img/karte-neubau.jpg" alt="Neubau eines Einfamilienhauses in Lüneburg mit Carport am Abend" width="900" height="600" loading="lazy"></picture>
+      <picture data-gruppe="sanierung"><img src="img/karte-sanierung.jpg" alt="Saniertes Einfamilienhaus in Hamburg-Marmstorf nach der Sanierung" width="900" height="600" loading="lazy"></picture>
+      <picture data-gruppe="umbau"><img src="img/karte-umbau.jpg" alt="Anbau mit großen roten Glastüren an eine Doppelhaushälfte" width="900" height="600" loading="lazy"></picture>
+      <picture data-gruppe="innenausbau"><img src="img/karte-innenausbau.jpg" alt="Ausbau eines Ladens mit Regalen und Kleiderständern in der HafenCity" width="900" height="600" loading="lazy"></picture>
+      <picture data-gruppe="beratung"><img src="img/karte-beratung.jpg" alt="Arbeitsplatz im Neubau mit Blick in den Garten" width="900" height="600" loading="lazy"></picture>
       <figcaption id="karte-bildtext">Neubau</figcaption>
     </figure>
 
     <div>
       <div class="karte__gruppe" data-gruppe="neubau">
         <div class="karte__titel"><span class="nr">01</span><h3>Neubau</h3></div>
-        <div class="karte__mobilbild"><img src="img/drittel-luen-neubau.jpg" alt="" width="640" height="400" loading="lazy"></div>
+        <div class="karte__mobilbild"><img src="img/karte-neubau.jpg" alt="Neubau eines Einfamilienhauses in Lüneburg mit Carport am Abend" width="900" height="600" loading="lazy"></div>
         <p class="karte__hinweis">Individuelle Häuser in moderner oder klassischer Architektur, mit Grundstücksanalyse und Grundstücksentwicklung.</p>
         <div class="posten"><span class="posten__name">Einfamilienhäuser</span></div>
         <div class="posten"><span class="posten__name">Mehrfamilienhäuser</span></div>
@@ -751,7 +775,7 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
 
       <div class="karte__gruppe" data-gruppe="sanierung">
         <div class="karte__titel"><span class="nr">02</span><h3>Sanierung</h3></div>
-        <div class="karte__mobilbild"><img src="img/drittel-fichtenweg-rot.jpg" alt="" width="640" height="400" loading="lazy"></div>
+        <div class="karte__mobilbild"><img src="img/karte-sanierung.jpg" alt="Saniertes Einfamilienhaus in Hamburg-Marmstorf nach der Sanierung" width="900" height="600" loading="lazy"></div>
         <p class="karte__hinweis">Modernisierung von Wohnhäusern, bei der die vorhandene Substanz so weit wie möglich genutzt wird.</p>
         <div class="posten"><span class="posten__name">Sanierung von Ein- und Mehrfamilienhäusern</span></div>
         <div class="posten"><span class="posten__name">Energetische Sanierung</span></div>
@@ -760,7 +784,7 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
 
       <div class="karte__gruppe" data-gruppe="umbau">
         <div class="karte__titel"><span class="nr">03</span><h3>Umbau und Anbau</h3></div>
-        <div class="karte__mobilbild"><img src="img/drittel-anbau-rot.jpg" alt="" width="640" height="400" loading="lazy"></div>
+        <div class="karte__mobilbild"><img src="img/karte-umbau.jpg" alt="Anbau mit großen roten Glastüren an eine Doppelhaushälfte" width="900" height="600" loading="lazy"></div>
         <p class="karte__hinweis">Wohnraumerweiterung durch Anbau, Ausbau oder Aufstockung im Dialog mit dem Bestand.</p>
         <div class="posten"><span class="posten__name">Anbau und Aufstockung</span></div>
         <div class="posten"><span class="posten__name">Umbau an heutige Bedürfnisse</span></div>
@@ -769,7 +793,7 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
 
       <div class="karte__gruppe" data-gruppe="innenausbau">
         <div class="karte__titel"><span class="nr">04</span><h3>Innenausbau</h3></div>
-        <div class="karte__mobilbild"><img src="img/drittel-hafencity-laden.jpg" alt="" width="640" height="400" loading="lazy"></div>
+        <div class="karte__mobilbild"><img src="img/karte-innenausbau.jpg" alt="Ausbau eines Ladens mit Regalen und Kleiderständern in der HafenCity" width="900" height="600" loading="lazy"></div>
         <p class="karte__hinweis">Entwurf und Planung von Innenausbauten, Einbaumöbeln und Einrichtungen.</p>
         <div class="posten"><span class="posten__name">Raumkonzepte</span></div>
         <div class="posten"><span class="posten__name">Ladenausbau</span></div>
@@ -778,7 +802,7 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
 
       <div class="karte__gruppe" data-gruppe="beratung">
         <div class="karte__titel"><span class="nr">05</span><h3>Bauherrenberatung</h3></div>
-        <div class="karte__mobilbild"><img src="img/drittel-luen-holz-abend.jpg" alt="" width="640" height="400" loading="lazy"></div>
+        <div class="karte__mobilbild"><img src="img/karte-beratung.jpg" alt="Arbeitsplatz im Neubau mit Blick in den Garten" width="900" height="600" loading="lazy"></div>
         <p class="karte__hinweis">Entscheidungshilfe beim Erwerb einer Immobilie, von der ersten Klärung bis zur Endabnahme.</p>
         <div class="posten"><span class="posten__name">Ankaufsberatung</span></div>
         <div class="posten"><span class="posten__name">Bedarfsanalyse und Budgetplanung</span></div>
@@ -798,14 +822,18 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
     </h2>
   </div>
   <div class="reihe" id="reihe">
-    <figure class="werk" data-enthuellen="bild"><img src="img/drittel-luen-neubau.jpg" alt="Neubau Einfamilienhaus mit Carport in Lüneburg" width="640" height="400" loading="lazy"><figcaption><span>Lüneburg</span></figcaption></figure>
-    <figure class="werk" data-enthuellen="bild"><img src="img/drittel-luen-holz-abend.jpg" alt="Neubau Einfamilienhaus mit Holzfassade und Terrasse am Abend in Lüneburg" width="640" height="400" loading="lazy"><figcaption><span>Lüneburg</span></figcaption></figure>
-    <figure class="werk" data-enthuellen="bild"><img src="img/drittel-dreifam-gaube.jpg" alt="Neubau Mehrfamilienhaus mit weißer Fassade in Wilhelmsburg" width="640" height="400" loading="lazy"><figcaption><span>Wilhelmsburg</span></figcaption></figure>
-    <figure class="werk" data-enthuellen="bild"><img src="img/drittel-hafencity-laden.jpg" alt="Ausbau eines Ladens in der HafenCity Hamburg" width="640" height="400" loading="lazy"><figcaption><span>HafenCity, Hamburg</span></figcaption></figure>
-    <figure class="werk" data-enthuellen="bild"><img src="img/drittel-anbau-rot.jpg" alt="Anbau mit großen roten Glastüren an eine Doppelhaushälfte in Marmstorf" width="640" height="400" loading="lazy"><figcaption><span>Marmstorf</span></figcaption></figure>
-    <figure class="werk" data-enthuellen="bild"><img src="img/Hamburg-Marmstorf2.jpg" alt="Modernes Einfamilienhaus mit Holzfassade und großer Glasfront in Marmstorf" width="257" height="187" loading="lazy"><figcaption><span>Marmstorf</span></figcaption></figure>
-    <figure class="werk" data-enthuellen="bild"><img src="img/HAMBURG-WILHELMSBURG_title.jpg" alt="Neubau Wohnhaus mit schräg verlaufendem Dach und Terrasse in Wilhelmsburg" width="257" height="187" loading="lazy"><figcaption><span>Wilhelmsburg</span></figcaption></figure>
-    <figure class="werk" data-enthuellen="bild"><img src="img/drittel-fichtenweg-rot.jpg" alt="Saniertes Einfamilienhaus mit rotem Ziegeldach in Marmstorf" width="640" height="400" loading="lazy"><figcaption><span>Marmstorf</span></figcaption></figure>
+    <figure class="werk" data-enthuellen="bild"><img src="img/p-lueneburg-carport.jpg" alt="Neubau eines Einfamilienhauses mit Carport, Lüneburg" width="900" height="600" loading="lazy"><figcaption><span>Lüneburg</span></figcaption></figure>
+    <figure class="werk" data-enthuellen="bild"><img src="img/p-lueneburg-garage.jpg" alt="Neubau eines Einfamilienhauses mit Garage, Lüneburg" width="900" height="600" loading="lazy"><figcaption><span>Lüneburg</span></figcaption></figure>
+    <figure class="werk" data-enthuellen="bild"><img src="img/p-marmstorf-buero.jpg" alt="Neubau eines Einfamilienhauses mit Büro, Hamburg-Marmstorf" width="900" height="600" loading="lazy"><figcaption><span>Marmstorf</span></figcaption></figure>
+    <figure class="werk" data-enthuellen="bild"><img src="img/p-wilhelmsburg-zwei.jpg" alt="Neubau eines Zweifamilienhauses, Hamburg-Wilhelmsburg" width="900" height="600" loading="lazy"><figcaption><span>Wilhelmsburg</span></figcaption></figure>
+    <figure class="werk" data-enthuellen="bild"><img src="img/p-wilhelmsburg-drei.jpg" alt="Neubau eines Dreifamilienhauses, Hamburg-Wilhelmsburg" width="900" height="600" loading="lazy"><figcaption><span>Wilhelmsburg</span></figcaption></figure>
+    <figure class="werk" data-enthuellen="bild"><img src="img/p-hafencity-laden.jpg" alt="Ausbau eines Ladens in der HafenCity, Hamburg" width="900" height="600" loading="lazy"><figcaption><span>HafenCity</span></figcaption></figure>
+    <figure class="werk" data-enthuellen="bild"><img src="img/p-marmstorf-anbau.jpg" alt="Anbau an eine Doppelhaushälfte, Hamburg-Marmstorf" width="900" height="600" loading="lazy"><figcaption><span>Marmstorf</span></figcaption></figure>
+    <figure class="werk" data-enthuellen="bild"><img src="img/p-marmstorf-sanierung-nachher.jpg" alt="Sanierung eines Einfamilienhauses, Hamburg-Marmstorf" width="900" height="600" loading="lazy"><figcaption><span>Marmstorf</span></figcaption></figure>
+  </div>
+  <div class="vorher-nachher" aria-label="Vorher und Nachher">
+    <figure data-enthuellen="bild"><img src="img/p-marmstorf-sanierung-vorher.jpg" alt="Einfamilienhaus in Hamburg-Marmstorf vor der Sanierung" width="900" height="674" loading="lazy"><figcaption>Vorher</figcaption></figure>
+    <figure data-enthuellen="bild"><img src="img/p-marmstorf-sanierung-nachher.jpg" alt="Einfamilienhaus in Hamburg-Marmstorf nach der Sanierung" width="900" height="598" loading="lazy"><figcaption>Nachher</figcaption></figure>
   </div>
 </section>
 
