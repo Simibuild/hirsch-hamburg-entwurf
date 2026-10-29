@@ -656,11 +656,11 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
 /* Profil am Desktop: Bild links, Text rechts */
 @media (min-width: 64em) {
   .team { grid-template-columns: minmax(0, 1fr); }
-  .person { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(3rem, 6vw, 6rem); align-items: center; text-align: left; }
+  .person { display: grid; grid-template-columns: 300px minmax(0, 1fr); column-gap: clamp(3rem, 6vw, 5rem); align-items: center; text-align: left; }
   .person__bild { grid-column: 1; grid-row: 1 / span 3; }
   .person__name, .person__rolle, .person__text { grid-column: 2; }
   .person__name { margin-top: 0; }
-  .person__text { margin-inline: 0; max-width: 34em; font-size: 1.05rem; }
+  .person__text { margin-inline: 0; max-width: 36em; font-size: 1.02rem; }
 }
 </style>
 </head>
