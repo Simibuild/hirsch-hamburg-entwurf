@@ -653,6 +653,15 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
 /* Das Bild zur letzten Leistung bleibt stehen, bis der Platzhalter durch ist */
 .karte__ende { display: none; }
 @media (min-width: 64em) { .karte__ende { display: block; height: 120vh; } }
+/* Profil am Desktop: Bild links, Text rechts */
+@media (min-width: 64em) {
+  .team { grid-template-columns: minmax(0, 1fr); }
+  .person { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(3rem, 6vw, 6rem); align-items: center; text-align: left; }
+  .person__bild { grid-column: 1; grid-row: 1 / span 3; }
+  .person__name, .person__rolle, .person__text { grid-column: 2; }
+  .person__name { margin-top: 0; }
+  .person__text { margin-inline: 0; max-width: 34em; font-size: 1.05rem; }
+}
 </style>
 </head>
 <body>
@@ -706,7 +715,7 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
 
     <div class="schnitt__ende" id="ende">
       <p class="schnitt__ende-ort">Kleefeld, Hamburg</p>
-      <p class="schnitt__ende-satz">Die Nutzer sollen sich in den Räumen wohlfühlen.</p>
+      <p class="schnitt__ende-satz">Sie sollen sich in den Räumen wohlfühlen.</p>
       <div class="schnitt__aktion">
         <a class="knopf knopf--hell" href="#projekte">Projekte ansehen</a>
       </div>
@@ -872,7 +881,7 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
     </h2>
   </div>
   <div class="zitate">
-    <blockquote class="zitat zitat--kurz" data-enthuellen="klipp"><p>Die Nutzer sollen sich in den Räumen wohlfühlen.</p><footer>Aus dem Profil</footer></blockquote>
+    <blockquote class="zitat zitat--kurz" data-enthuellen="klipp"><p>Sie sollen sich in den Räumen wohlfühlen.</p><footer>Aus dem Profil</footer></blockquote>
     <blockquote class="zitat" data-enthuellen="klipp"><p>Ich verstehe mich als Ihre Anwältin am Bau, die im gesamten Planungs- und Bauprozess Ihre Interessen vertritt.</p><footer>Aus dem Profil</footer></blockquote>
     <blockquote class="zitat" data-enthuellen="klipp"><p>Schon möglichst vor dem Erwerb einer Immobilie kläre ich mit Ihnen Bedarf und Budget.</p><footer>Aus dem Profil</footer></blockquote>
   </div>
