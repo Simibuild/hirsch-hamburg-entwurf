@@ -650,6 +650,9 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
 .lb-titel { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.4rem); line-height: 1.2; }
 .lb-ort { margin-top: .35rem; font-size: .8rem; letter-spacing: .08em; color: rgba(241, 236, 227, .6); }
 @media (max-width: 47.99em) { .lb-bild { padding: 0 8px; } .lb-pfeil { display: none; } }
+/* Das Bild zur letzten Leistung bleibt stehen, bis der Platzhalter durch ist */
+.karte__ende { display: none; }
+@media (min-width: 64em) { .karte__ende { display: block; height: 120vh; } }
 </style>
 </head>
 <body>
@@ -830,6 +833,7 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
         <div class="posten"><span class="posten__name">Bedarfsanalyse und Budgetplanung</span></div>
         <div class="posten"><span class="posten__name">Kostenschätzungen</span></div>
       </div>
+      <div class="karte__ende" aria-hidden="true"></div>
     </div>
   </div>
   <p class="karte__fuss" style="margin-top:2.2rem"><span>Alle Leistungsphasen nach HOAI, von der Grundlagenermittlung (LPH 1) bis zur Objektbetreuung (LPH 9).</span></p>
@@ -1294,9 +1298,9 @@ body.menue-offen .menue__liste a:nth-child(5) { transition-delay: .24s; }
   }
   function karteSpy() {
     if (!desktop()) return;
-    // Der zuletzt überschrittene Abschnitt bleibt stehen, bis der nächste die Linie in der Mitte erreicht.
+    // Der zuletzt überschrittene Abschnitt bleibt stehen, bis der nächste das obere Viertel der Ansicht erreicht.
     // So bleibt auch das Bild von Punkt 05 solange stehen, wie der Text unter der Überschrift im Blick ist.
-    const linie = innerHeight * 0.5;
+    const linie = innerHeight * 0.25;
     let aktuell = gruppen[0];
     for (const g of gruppen) { if (g.getBoundingClientRect().top <= linie) aktuell = g; }
     zeigeGruppe(aktuell.dataset.gruppe);
